@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="no-js  page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ветком</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"> -->
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"> -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet" media="screen">
+
+  <script>
+    // Маркер работающего javascript
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.isMobile !== undefined) {
+        // console.log(isMobile);
+        if(isMobile.any) {
+          var rootClasses = ' is-mobile';
+          for (key in isMobile) {
+            if(typeof isMobile[key] === 'boolean' && isMobile[key] && key !== 'any') rootClasses += ' is-mobile--'+key;
+            if(typeof isMobile[key] === 'object' && key !== 'other') {
+              for (type in isMobile[key]) {
+                if(isMobile[key][type]) rootClasses += ' is-mobile--'+key+'-'+type;
+              }
+            }
+          }
+          document.documentElement.className += rootClasses;
+        }
+      }
+      else {
+        console.log('Классы для мобильных не добавлены: в сборке отсутствует isMobile.js');
+      }
+    });
+
+  </script>
+
+  <style media="screen">
+    .all-pages {
+      -ms-align-items: center;
+      align-items: center;
+      justify-content: center;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+
+    }
+    .all-pages__list {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page__inner">
+
+    <div class="page__content all-pages">
+
+      <div class="all-pages__wrap">
+        <h4>Все страницы</h4>
+        <ul class="all-pages__list">
+          <li><a href="index.html" target="_blank">Главная</a></li>
+          <li><a href="page-text.html" target="_blank">Текстовая</a></li>
+          <li><a href="page-signup--fiz.html" target="_blank">Регистрация для физических лиц</a></li>
+          <li><a href="page-signup--fiz.html" target="_blank">Регистрация для юридических лиц</a></li>
+          <li><a href="page-lk--fiz.html" target="_blank">Личный кабинет(физ)</a></li>
+          <li><a href="page-lk--ur.html" target="_blank">Личный кабинет(юр)</a></li>
+          <li><a href="page-news--list.html" target="_blank">Список новостей</a></li>
+          <li><a href="page-news--post.html" target="_blank">Страница новости</a></li>
+          <li><a href="page-contacts.html" target="_blank">Контакты</a></li>
+          <li><a href="page-question.html" target="_blank">Вопрос/ответ</a></li>
+          <li><a href="page-catalog.html" target="_blank">Каталог</a></li>
+          <li><a href="page-product.html" target="_blank">Страница товара</a></li>
+          <li><a href="page-compare.html" target="_blank">Сравнение товаров</a></li>
+          <li><a href="page-favorite.html" target="_blank">Избранные товары</a></li>
+          <li><a href="page-subs.html" target="_blank">Товары в подписках</a></li>
+          <li><a href="page-search.html" target="_blank">Страница поиска</a></li>
+          <li><a href="page-basket.html" target="_blank">Корзина</a></li>
+          <li><a href="page-checkout--pickup.html" target="_blank">Оформление заказа(самовывоз)</a></li>
+          <li><a href="page-checkout--delivery.html" target="_blank">Оформление заказа(доставка)</a></li>
+          <li><a href="page-error.html" target="_blank">Страница 404</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="modal-login" class="modal modal--login" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Вход</h4>
+        </div>
+        <div class="modal__body">
+          <form class="form" action="">
+            <label class="field-text">
+              <span class="field-text__name">E-mail</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="email" placeholder="test@test.ru" name="">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Пароль</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="password" placeholder="******" name="">
+              </span>
+            </label>
+            <div class="field-actions">
+              <button class="btn btn--main btn--block">Войти</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <div class="modal__footer-links">
+            <span>или <a href="#">Зарегистрироваться</a></span>
+            <span><a href="#modal-login-2" data-toggle="modal">Забыли пароль</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-login-2" class="modal modal--login" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Забыли пароль?</h4>
+        </div>
+        <div class="modal__body">
+          <form class="form" action="">
+            <label class="field-text">
+              <span class="field-text__name">E-mail</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="email" placeholder="test@test.ru" name="">
+              </span>
+            </label>
+            <div class="field-actions">
+              <button class="btn btn--main btn--block">Выслать пароль</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <div class="modal__footer-links">
+            <span>или <a href="#">Зарегистрироваться</a></span>
+            <span><a href="#">Забыли пароль</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-review" class="modal modal--review" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Оставить отзыв</h4>
+        </div>
+        <div class="modal__body">
+          <form class="form" action="">
+            <label class="field-text">
+              <span class="field-text__name">Имя*</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="text" placeholder="Антон" name="">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Телефон*</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="tel" placeholder="+7 (___) __-__-___" name="" id="phone">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Email*</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="email" placeholder="anton@email.com" name="">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Комментарий*</span>
+              <span class="field-text__input-wrap">
+                <textarea class="field-text__input" placeholder="textarea"></textarea>
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Достоинства</span>
+              <span class="field-text__input-wrap">
+                <textarea class="field-text__input" placeholder="textarea"></textarea>
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Недостатки</span>
+              <span class="field-text__input-wrap">
+                <textarea class="field-text__input" placeholder="textarea"></textarea>
+              </span>
+            </label>
+            <div class="field-actions">
+              <div class="field-actions__text">* — обязательные поля</div>
+              <button class="btn btn--block btn--main">Оставить отзыв</button>
+            </div>
+            <div class="field-checkbox">
+              <label class="field-checkbox__name">
+                <input class="field-checkbox__input" type="checkbox" id="" name="" checked="">
+                <span class="field-checkbox__name-text">Я принимаю условия</span>
+                <a href="#">пользовательского соглашения</a>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <p class="modal__caption-text">Ваш телефон и адрес электронной почты не будет виден другим пользователям. Перед публикацией все сообщения проходят модерацию</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-price-category" class="modal modal--price-category" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Ценовые категории</h4>
+        </div>
+        <div class="modal__body">
+          <table class="table-responsive--category table-responsive">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Сумма ежемесячной закупки</th>
+                <th>Скидка от розничной цены</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Название">Спец.300</td>
+                <td data-label="Сумма ежемесячной закупки">30 000 - 99 999 руб.</td>
+                <td data-label="Скидка от розничной цены">40-45%</td>
+              </tr>
+              <tr>
+                <td data-label="Название">Специальная</td>
+                <td data-label="Сумма ежемесячной закупки">от 10 000 руб.</td>
+                <td data-label="Скидка от розничной цены">40-45%</td>
+              </tr>
+              <tr>
+                <td data-label="Название">ЯЯ-Москва</td>
+                <td data-label="Сумма ежемесячной закупки">от 100 000 руб.</td>
+                <td data-label="Скидка от розничной цены">40-45%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal__footer">
+          <h4 class="modal__title">Ваша ценовая категория</h4>
+          <div class="your-price-category">
+            <span>Спец. зоо</span>
+            <span>Скидка 40-45%</span>
+          </div>
+          <p class="modal__caption-text">Сумма заказов в прошлом месяце: 72 500 руб.</p>
+          <p class="modal__caption-text">Сумма заказов в текущем месяце: 52 500 руб.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-add-basket" class="modal modal--add-basket" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Товар добавлен в корзину</h4>
+        </div>
+        <div class="modal__body">
+          <div class="product-card--modal">
+            <div class="product-card__inner">
+              <div class="product-card__image">
+                <img src="img/product-image.png" alt="">
+              </div>
+              <div class="product-card__body">
+                <h5 class="product-card__name"><a href="page-product.html" tabindex="0">Сухой корм PRO PLAN Sterilised</a></h5>
+                <ul class="product-card__info">
+                  <li>Артикул: 1234567</li>
+                  <li>В наличии: 520 шт.</li>
+                </ul>
+                <div class="product-card__price">
+                  <div class="price-delivery">1050 <span class="rub">a</span></div>
+                  <div class="price-pickup">
+                    <div class="price-pickup__text">
+                      900 <span class="rub">a</span>
+                    </div>
+                    <span class="tooltip">
+                      <button class="tooltip__btn tooltip__btn--green" aria-label="more info" data-tooltip-content="Цена с самовывозом" tabindex="0">Подсказка</button>
+                      <span role="status"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-group">
+            <a href="#" class="btn btn--main">Перейти в корзину</a>
+            <a href="#" class="btn btn--gray">Продолжить покупки</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-call" class="modal modal--call" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Заказать звонок</h4>
+          <p class="modal__text text-center">Наши менеджеры перезвонят вам в короткий срок</p>
+        </div>
+        <div class="modal__body">
+          <form class="form" action="">
+            <label class="field-text">
+              <span class="field-text__name">Имя</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="text" name="">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Телефон</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input phone-mask" placeholder="+7 (___) __-__-___" type="tel" name="">
+              </span>
+            </label>
+            <div class="field-actions">
+              <button class="btn btn--main btn--block">Заказать звонок</button>
+            </div>
+            <div class="field-checkbox">
+              <label class="field-checkbox__name">
+                <input class="field-checkbox__input" type="checkbox" id="" name="" checked="">
+                <span class="field-checkbox__name-text">Я согласен с</span>
+                <a href="#">условиями обработки данных</a>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-feedback" class="modal modal--feedback" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Обратная связь</h4>
+          <p class="modal__text text-center">Мы оперативно отреагируем на ваше сообщение</p>
+        </div>
+        <div class="modal__body">
+          <form class="form" action="">
+            <label class="field-text">
+              <span class="field-text__name">Имя</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input" type="text" name="">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Телефон</span>
+              <span class="field-text__input-wrap">
+                <input class="field-text__input phone-mask" placeholder="+7 (___) __-__-___" type="tel" name="">
+              </span>
+            </label>
+            <label class="field-text">
+              <span class="field-text__name">Сообщение</span>
+              <span class="field-text__input-wrap">
+                <textarea class="field-text__input" rows="6"></textarea>
+              </span>
+            </label>
+            <div class="field-actions">
+              <button class="btn btn--main btn--block">Заказать звонок</button>
+            </div>
+            <div class="field-checkbox">
+              <label class="field-checkbox__name">
+                <input class="field-checkbox__input" type="checkbox" id="" name="" checked="">
+                <span class="field-checkbox__name-text">Я согласен с</span>
+                <a href="#">условиями обработки данных</a>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-subs" class="modal modal--subs" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <a href="#" class="close  modal__close" data-dismiss="modal" aria-label="Закрыть"><span></span></a>
+          <h4 class="modal__title">Изменить условия</h4>
+          <!-- <p class="modal__text text-center">Мы оперативно отреагируем на ваше сообщение</p> -->
+        </div>
+        <div class="modal__body">
+          <div class="tabs tabs--modal">
+            <ul class="tabs__links" role="tablist">
+              <li class="tabs__link-wrap tabs__link-wrap--active" role="presentation">
+                <a href="#subs-tab-01" class="tabs__link" data-toggle="tab" role="tab">Контактные данные</a>
+              </li>
+              <li class="tabs__link-wrap" role="presentation">
+                <span data-target="#subs-tab-02" class="tabs__link" data-toggle="tab" role="tab">Доставка</span>
+              </li>
+            </ul>
+
+            <div class="tabs__content-wrapper">
+              <div class="tabs__content-item tabs__content-item--active" id="subs-tab-01" role="tabpanel">
+                <form class="form form--modal" action="">
+                  <label class="field-text">
+                    <span class="field-text__name">ФИО контактного лица</span>
+                    <span class="field-text__input-wrap">
+                      <input class="field-text__input" type="text" name="" value="Синицин Игорь Владимирович">
+                    </span>
+                  </label>
+                  <label class="field-text">
+                    <span class="field-text__name">Контактный телефон</span>
+                    <span class="field-text__input-wrap">
+                      <input class="field-text__input phone-mask" placeholder="+7 (___) __-__-___" type="tel" name="">
+                    </span>
+                  </label>
+                  <label class="field-text">
+                      <span class="field-text__name">ФИО контактного лица</span>
+                      <span class="field-text__input-wrap">
+                        <input class="field-text__input" type="text" name="" value="ул. Косухина д.26 кв.60">
+                      </span>
+                    </label>
+                  <div class="field-actions">
+                    <button class="btn btn--main btn--block">Далее</button>
+                  </div>
+                </form>
+              </div>
+              <div class="tabs__content-item" id="subs-tab-02" role="tabpanel">
+                <form class="form form--modal" action="">
+                  <label class="field-select">
+                    <div class="field-select__name">Переодичность доставки</div>
+                    <div class="field-select__select-wrap">
+                      <select class="field-select__select" id="" name="">
+                        <option>Раз в месяц</option>
+                        <option>Раз в месяц</option>
+                        <option>Раз в месяц</option>
+                        <option>Раз в месяц</option>
+                        <option>Раз в месяц</option>
+                      </select>
+                    </div>
+                  </label>
+                  <label class="field-text">
+                    <span class="field-text__name">Дата доставки</span>
+                    <span class="field-text__input-wrap">
+                      <input class="field-text__input field-text__input--date" value="11 числа" type="text" name="">
+                    </span>
+                  </label>
+                  <label class="field-text">
+                    <span class="field-text__name">Время доставки</span>
+                    <span class="field-text__input-wrap">
+                      <input class="field-text__input" type="text" value="antongorodecky@gmail.com" name="">
+                    </span>
+                  </label>
+                  <div class="subs-form-info">
+                    <div class="subs-form-info__price">Сумма в месяц: <span>5500 <span class="rub">a</span></span></div>
+                    <div class="subs-form-info__val">Количество товаров: 25</div>
+                  </div>
+                  <div class="field-actions">
+                    <button class="btn btn--main btn--block">Сохранить</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.min.js"></script>
+
+</body>
+</html>
